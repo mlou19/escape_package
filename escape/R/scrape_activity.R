@@ -3,14 +3,13 @@
 #'
 #' @param city A string representing the city for which you want activities.
 #' @return A dataframe with all of the activies for the input city.
-generate_activities <- function(city) {
+scrape_activity <- function(city) {
 
   library(rvest)
   library(stringr)
   library(jsonlite)
   library(ggmap)
   library(RSelenium)
-
 
   #open browser
   checkForServer()
@@ -208,7 +207,6 @@ get_description <- function(event) {
 
 #' @param url URL for a search query of Google's Knowledge graph API.
 #' @return Returns TRUE if the url was valid, FALSE if there doesn't exist a knowledge graph for that query.
-
 verify_URL <- function(url) {
   tryCatch({
     fromJSON(url)
