@@ -29,4 +29,5 @@ write_db_tables <- function(activity, food, DM, city) {
 
   #disconnect from database to ensure correct writing to .sqlite file
   dbDisconnect(db)
+
 }
