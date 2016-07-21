@@ -181,7 +181,7 @@ get_description <- function(event) {
   #search_url <- sprintf("https://www.google.co.za/search?q=%s&oq=%s&aqs=chrome", event, event)
   #google_search <- read_html(search_url)get_
 
-  apikey <- "AIzaSyA0bW3ZM_tphycV9HPx0WLZyx2TiAQKnOg"
+  apikey <- 'key here'
 
   url <- paste0("https://kgsearch.googleapis.com/v1/entities:search?query=",event,"&key=", apikey, "&limit=1&indent=True")
 
