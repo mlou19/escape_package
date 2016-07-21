@@ -9,7 +9,7 @@
 write_db_tables <- function(activity, food, DM, city) {
 
   #load necessary package for SQL
-  library(RSQLite)
+  suppressPackageStartupMessages(library(RSQLite))
 
   #connect to escape database
   db <- dbConnect(SQLite(), "escapeDB.sqlite")

@@ -1,6 +1,6 @@
 Package: escape
 Type: Package
-Title: Back end functions for Escape app
+Title: Escape
 Version: 0.1.0
 Author: Graham Place, Armaan Shah, Maggie Lou, Saad Slaoui, Gaurav Kumar,
     Anushka Makhija
@@ -8,3 +8,15 @@ Description: Handles data base functionality of adding new cities to the Escape
     app's database
 LazyData: TRUE
 RoxygenNote: 5.0.1
+Imports: dplyr,
+    RSQLite,
+    rvest,
+    stringr,
+    jsonlite,
+    ggmap,
+    RSelenium,
+    RCurl,
+    XML,
+    outliers,
+    RJSONIO
+Suggests: testthat

@@ -5,11 +5,11 @@
 #' @return A dataframe with all of the activies for the input city.
 scrape_activity <- function(city) {
 
-  library(rvest)
-  library(stringr)
-  library(jsonlite)
-  library(ggmap)
-  library(RSelenium)
+  suppressPackageStartupMessages(library(rvest))
+  suppressPackageStartupMessages(library(stringr))
+  suppressPackageStartupMessages(library(jsonlite))
+  suppressPackageStartupMessages(library(ggmap))
+  suppressPackageStartupMessages(library(RSelenium))
 
   #open browser
   checkForServer()
@@ -90,8 +90,6 @@ scrape_activity <- function(city) {
 
 }
 
-#' @param url A string representing the URL of the attraction page.
-#' @return A dataframe including activites data for the input URL.
 get_data <- function(url) {
   #read page
   input <- read_html(url)
@@ -169,9 +167,6 @@ get_data <- function(url) {
 }
 
 
-
-#' @param event A string of the name of the event.
-#' @return A string description of the event.
 get_description <- function(event) {
 
   #transform search query to text+text format (replace spaces with +)
@@ -205,8 +200,7 @@ get_description <- function(event) {
   return(description)
 }
 
-#' @param url URL for a search query of Google's Knowledge graph API.
-#' @return Returns TRUE if the url was valid, FALSE if there doesn't exist a knowledge graph for that query.
+
 verify_URL <- function(url) {
   tryCatch({
     fromJSON(url)
