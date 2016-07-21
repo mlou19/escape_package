@@ -2,7 +2,10 @@
 #'
 #' @param city String of the city name wished to add to escape database
 #' @export
-add_city <- function(city){
+add_city <- function(city) {
+
+  #create new database file, if need be:
+  create_database()
 
   #scrape and store main tables
   activity <- scrape_activity(city)
@@ -15,5 +18,11 @@ add_city <- function(city){
   write_db_tables(activity, food, DM, city)
 
 }
+
+
+
+
+
+
 
 
