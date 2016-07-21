@@ -93,8 +93,10 @@ scrape_activity <- function(city) {
 
 }
 
-
-get_data <- function(url) {
+#' @param url A string representing the page from which you want to gather all the data.
+#' @param city A string representing the input city.
+#' @return A dataframe for all the data from the input url.
+get_data <- function(url,city) {
   #read page
   input <- read_html(url)
 
@@ -138,7 +140,7 @@ get_data <- function(url) {
   act.addresses <- str_trim(gsub("\\| ", "", act.addresses))
 
   #get descriptions
-  description <- sapply(activity.names, get_description)
+  description <- sapply(paste(activity.names, city, sep = "+"), get_description)
 
   #get geo location
   geo_location <- sapply(act.addresses, geocode)
@@ -182,7 +184,7 @@ get_description <- function(event) {
   #search_url <- sprintf("https://www.google.co.za/search?q=%s&oq=%s&aqs=chrome", event, event)
   #google_search <- read_html(search_url)get_
 
-  apikey <- "secret"
+  apikey <- "AIzaSyA0bW3ZM_tphycV9HPx0WLZyx2TiAQKnOg"
 
   url <- paste0("https://kgsearch.googleapis.com/v1/entities:search?query=",event,"&key=", apikey, "&limit=1&indent=True")
 
@@ -211,7 +213,7 @@ get_description <- function(event) {
 #' @return Returns TRUE if the url was valid, FALSE if there doesn't exist a knowledge graph for that query.
 verify_URL <- function(url) {
   tryCatch({
-    fromJSON(url)
+    json <- fromJSON(url)
     description <- json$itemListElement[[1]]$result$detailedDescription[1]
     return(TRUE)
   }, error = function(e) {
@@ -220,8 +222,6 @@ verify_URL <- function(url) {
   }, finally = {}
   )
 }
-
-
 
 
 
