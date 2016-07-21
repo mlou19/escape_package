@@ -1,8 +1,6 @@
 #' Main escape city creation function: take in city name, scrape tables, write tables to database
 #'
 #' @param city String of the city name wished to add to escape database
-#' @example
-#' add_city("Chicago")
 #' @export
 add_city <- function(city){
 
