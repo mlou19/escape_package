@@ -1,5 +1,3 @@
-#' @param city A string representing the city.
-#' @return A dataframe holding all the food data for the input city.
 scrape_food <- function(city) {
 
   suppressPackageStartupMessages(library(rvest))
